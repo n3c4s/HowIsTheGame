@@ -39,6 +39,10 @@ class Play extends Phaser.Scene{
     update(time,delta){
         if(this.maxobjects == 0){
             this.GameOverText = this.add.text(860, 540, 'GAMEOVER', { fontSize: '64px', fill: '#ffffff' });
+            this.GameOverText2 = this.add.text(860, 690, 'Click here For Reload The Game', { fontSize: '32px', fill: '#ffffff' });
+            this.GameOverText2.setInteractive();
+            this.GameOverText2.on('pointerdown', () => { this.scene.restart(); });
+            this.maxobjects = 2;
 
         }
     }
