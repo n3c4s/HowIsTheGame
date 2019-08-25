@@ -10,25 +10,25 @@ class Play extends Phaser.Scene{
         this.fondo = this.add.image(960,540, "Background");
         this.fondo.setScale(2.2);
         this.imagen1 = this.physics.add.sprite (0,200, "Naranja");
-        this.imagen1.displayWidth = 200;
-        this.imagen1.displayHeight = 200;
-        this.imagen2 = this.physics.add.sprite(0,500,"Ice");
-        this.imagen2.displayWidth = 200;
-        this.imagen2.displayHeight = 200;
+        this.imagen1.displayWidth = 300;
+        this.imagen1.displayHeight = 300;
+        this.imagen2 = this.physics.add.sprite(0,650,"Ice");
+        this.imagen2.displayWidth = 300;
+        this.imagen2.displayHeight = 300;
         this.muerte = this.physics.add.sprite(1910,500, "End");
         this.muerte.body.setImmovable(true);
         this.physics.add.collider(this.imagen1,this.muerte,this.muere, null, this);
         this.physics.add.collider(this.imagen2,this.muerte,this.muere1, null, this);
       //this.imagen1.body.collideWorldBounds = true;
         this.imagen1.setVelocityX(100);
-        this.imagen2.setVelocityX(100);
+        this.imagen2.setVelocityX(90);
         this.scoreText = this.add.text(860, 16, 'score: 0', { fontSize: '32px', fill: '#ffffff' });
         this.timedEvent = this.time.addEvent({ delay: 1000, callback: this.actualizarcontador, callbackScope: this,loop: true});
-        this.input.keyboard.on("keydown_F", () => {
+        this.input.keyboard.on("keydown_N", () => {
             this.imagen1.destroy();
             this.sumapuntos();
         });
-        this.input.keyboard.on("keydown_I", () => {
+        this.input.keyboard.on("keydown_M", () => {
             this.imagen2.destroy();
             this.sumapuntos();
         });
