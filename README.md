@@ -2,14 +2,15 @@
 
 Alpha Version 0.1
 
-How Works:
+#How Works:
 You need to type the first letter of the image. THINK FAST FOR COLLECT MORE SCORE!!!
-DONE:
+
+#DONE:
 + Game Logic 80% Done
 + Get Request Done
 + Game Mechanics 80% Done
 
-FOR DO:
+#FOR DO:
 + Use 500px Images
 + Clean Code
 + Game Responsive
