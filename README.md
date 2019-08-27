@@ -10,11 +10,12 @@ You need to type the first letter of the image. THINK FAST FOR COLLECT MORE SCOR
 + Game Logic 80% Done
 + Get Request Done
 + Game Mechanics 80% Done
++ Game Responsive
++ BootStrap & Landing page
+
 
 # FOR DO:
 + Use 500px Images
 + Clean Code
-+ Game Responsive
 + Angular Integration
-+ BootStrap & Landing page
 + Port Cordova ¿?¿?¿?¿?¿?¿
