@@ -10,7 +10,7 @@ class Bootloader extends Phaser.Scene{
         });
         this.load.image("Naranja",window.Imagen1API);
         console.log(window.Imagen1API);
-        this.load.image("Ice", "./assets/ice.jpg");
+        this.load.image("Ice", window.Imagen2API);
         this.load.image("Background", "./assets/background.jpg");
         this.load.image("End","./assets/end.png");
         this.load.image("Start", "./assets/start.png");

@@ -1,6 +1,6 @@
 import Bootloader  from './bootloader.js';
 import Play from './scenes/Play.js';
-$(document).ready(function() {
+$(window).on('load', function() {
     //code here
 
         const config = {

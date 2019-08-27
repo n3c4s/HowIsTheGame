@@ -1,5 +1,3 @@
-$(window).on('load', function() {
-    // your code here
 
     $.ajax({
       type: 'GET',
@@ -17,4 +15,3 @@ $(window).on('load', function() {
           window.Nombre2API = resp.photos[1].name;      
       }
     });
-});
