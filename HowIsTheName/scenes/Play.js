@@ -10,6 +10,7 @@ class Play extends Phaser.Scene{
     create(){
         this.fondo = this.add.image(640,360, "Background");
         this.fondo.setScale(1.4);
+        console.log(window.Imagen1API);
         this.imagen1 = this.physics.add.sprite (0,200, "Naranja");
         this.imagen1.displayWidth = 200;
         this.imagen1.displayHeight = 200;
@@ -47,6 +48,7 @@ class Play extends Phaser.Scene{
             this.time.timeScale = 0;
 
         }
+        //console.log(window.Imagen1API);
 
     }
     actualizarcontador(){
