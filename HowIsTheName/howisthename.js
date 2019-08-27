@@ -2,9 +2,13 @@ import Bootloader  from './bootloader.js';
 import Play from './scenes/Play.js';
 const config = {
     type: Phaser.AUTO,
-    width: 1920,
-    height: 1080,
-    parent: "contenedor",
+    scale: {
+        mode: Phaser.Scale.FIT,
+        parent: 'contenedor',
+        autoCenter: Phaser.Scale.CENTER_BOTH,
+        width: 1280,
+        height: 720
+    },
     physics: {
         default: "arcade",
         arcade:{
@@ -16,6 +20,9 @@ const config = {
     scene: [
         Bootloader,
         Play
-    ]
+    ],
+    render: {
+        pixelArt: true
+    }
 };
 new Phaser.Game(config);

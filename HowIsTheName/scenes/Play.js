@@ -4,26 +4,64 @@ class Play extends Phaser.Scene{
         this.score = 0;
         this.tiempo = 0;
         this.maxobjects = 2;
+        this.ini = false;
     }
 
     create(){
-        this.fondo = this.add.image(960,540, "Background");
-        this.fondo.setScale(2.2);
+        this.fondo = this.add.image(640,360, "Background");
+        this.fondo.setScale(1.4);
         this.imagen1 = this.physics.add.sprite (0,200, "Naranja");
-        this.imagen1.displayWidth = 300;
-        this.imagen1.displayHeight = 300;
+        this.imagen1.displayWidth = 200;
+        this.imagen1.displayHeight = 200;
         this.imagen2 = this.physics.add.sprite(0,650,"Ice");
-        this.imagen2.displayWidth = 300;
-        this.imagen2.displayHeight = 300;
-        this.muerte = this.physics.add.sprite(1910,500, "End");
+        this.imagen2.displayWidth = 200;
+        this.imagen2.displayHeight = 200;
+        this.muerte = this.physics.add.sprite(1270,500, "End");
         this.muerte.body.setImmovable(true);
         this.physics.add.collider(this.imagen1,this.muerte,this.muere, null, this);
         this.physics.add.collider(this.imagen2,this.muerte,this.muere1, null, this);
+        this.start = this.add.text(600, 360, 'START', { fontSize: '64px', fill: '#ffffff' });
+        this.start.setInteractive();
+        this.start.on('pointerdown',() => { this.iniciar();});
       //this.imagen1.body.collideWorldBounds = true;
+
+        this.scoreText = this.add.text(600, 16, 'score: 0', { fontSize: '32px', fill: '#ffffff' });
+
+
+
+     // this.imagen1.body.onCollide = true;
+        //this.imagen1.setCollideWorldBounds(true);
+    }
+    update(){
+
+        if(this.maxobjects == 0){
+            this.scorefinal = this.score;
+            this.GameOverScoreFinal = this.add.text(350, 150, 'Your max score: ' + this.scorefinal, { fontSize: '48px', fill: '#ffffff' });
+            this.GameOverText = this.add.text(450, 300, 'GAMEOVER', { fontSize: '64px', fill: '#ffffff' });
+            this.GameOverText2 = this.add.text(350, 400, 'Click here For Reload The Game', { fontSize: '32px', fill: '#ffffff' });
+            this.GameOverText2.setInteractive();
+            this.GameOverText2.on('pointerdown', () => { this.reiniciar(); });
+            this.maxobjects = 2;
+            this.ini = false;
+            this.scoreText.setVisible(false);
+            this.time.timeScale = 0;
+
+        }
+
+    }
+    actualizarcontador(){
+        this.tiempo++;
+        
+    }
+    reiniciar(){
+        this.score = 0;
+        this.scene.restart();
+    }
+    iniciar(){
         this.imagen1.setVelocityX(100);
         this.imagen2.setVelocityX(90);
-        this.scoreText = this.add.text(860, 16, 'score: 0', { fontSize: '32px', fill: '#ffffff' });
-        this.timedEvent = this.time.addEvent({ delay: 1000, callback: this.actualizarcontador, callbackScope: this,loop: true});
+        this.start.setVisible(false);
+        this.ini = true;
         this.input.keyboard.on("keydown_N", () => {
             this.imagen1.destroy();
             this.sumapuntos();
@@ -32,22 +70,8 @@ class Play extends Phaser.Scene{
             this.imagen2.destroy();
             this.sumapuntos();
         });
+        this.timedEvent = this.time.addEvent({ delay: 1000, callback: this.actualizarcontador, callbackScope: this,loop: true});
 
-     // this.imagen1.body.onCollide = true;
-        //this.imagen1.setCollideWorldBounds(true);
-    }
-    update(time,delta){
-        if(this.maxobjects == 0){
-            this.GameOverText = this.add.text(860, 540, 'GAMEOVER', { fontSize: '64px', fill: '#ffffff' });
-            this.GameOverText2 = this.add.text(860, 690, 'Click here For Reload The Game', { fontSize: '32px', fill: '#ffffff' });
-            this.GameOverText2.setInteractive();
-            this.GameOverText2.on('pointerdown', () => { this.scene.restart(); });
-            this.maxobjects = 2;
-
-        }
-    }
-    actualizarcontador(){
-        this.tiempo++;
     }
     muere(){
         this.imagen1.destroy();
