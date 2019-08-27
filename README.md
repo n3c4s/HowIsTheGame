@@ -7,15 +7,16 @@ Alpha Version 0.1
 You need to type the first letter of the image. THINK FAST FOR COLLECT MORE SCORE!!!
 
 # DONE:
-+ Game Logic 80% Done
++ Game Logic 100% Done
 + Get Request Done
-+ Game Mechanics 80% Done
++ Game Mechanics 100% Done
 + Game Responsive
 + BootStrap & Landing page
++ Use 500px Images
+
 
 
 # FOR DO:
-+ Use 500px Images
 + Clean Code
 + Angular Integration
 + Port Cordova ¿?¿?¿?¿?¿?¿
