@@ -64,11 +64,11 @@ class Play extends Phaser.Scene{
         this.imagen2.setVelocityX(90);
         this.start.setVisible(false);
         this.ini = true;
-        this.input.keyboard.on("keydown_N", () => {
+        this.input.keyboard.on("keydown_" + window.Nombre1API.charAt(0), () => {
             this.imagen1.destroy();
             this.sumapuntos();
         });
-        this.input.keyboard.on("keydown_M", () => {
+        this.input.keyboard.on("keydown_" + window.Nombre2API.charAt(0), () => {
             this.imagen2.destroy();
             this.sumapuntos();
         });
